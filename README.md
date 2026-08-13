@@ -1,194 +1,337 @@
-# WettstaiFont für MuseScore 4 – Installation & Benutzung
+# WettstaiFont für MuseScore Studio
 
-Diese Anleitung erklärt, wie du die `WettstaiFont` (Basler Trommel-Notation / „Hieroglyphen-Schrift") in MuseScore 4 unter Windows 11 installierst und benutzt.
+Basler Trommel-Notation („Wettstai“ / Hieroglyphen-Schrift) als Musiksymbol-Schriftart
+für **MuseScore Studio 4.6+** unter Windows 10/11.
 
----
+Das ursprüngliche Paket funktionierte nicht. Die Ursachen sind gefunden und behoben;
+alles Nötige liegt im fertigen ZIP.
 
-## ⚠️ Wichtigste Voraussetzung
+**→ [`WettstaiFont-MuseScore4-Setup.zip`](WettstaiFont-MuseScore4-Setup.zip) herunterladen,
+entpacken, `Install-WettstaiFont.ps1` ausführen.**
 
-**Vollständige Drittanbieter-SMuFL-Unterstützung gibt es erst ab MuseScore 4.6** (Oktober 2025). Auf älteren 4.x-Versionen wird die Schrift im Style-Dialog möglicherweise gar nicht erscheinen oder die Glyphen werden falsch dargestellt.
+![Vorher/Nachher](docs/preview.png)
 
-Prüfe deine Version unter **Hilfe → Über MuseScore**. Wenn du eine ältere Version hast: Aktualisiere auf 4.6 oder neuer, bevor du weitermachst.
-
----
-
-## 📦 Inhalt dieses Pakets
-
-| Datei | Zweck |
-|-------|-------|
-| `WettstaiFont.otf` | Die eigentliche Schriftdatei (unverändert) |
-| `WettstaiFont.json` | SMuFL-Metadaten mit korrigierten `engravingDefaults` |
-| `glyphnames.json` | Glyph-Namen-Mapping (60 Wettstai-Symbole) |
-| `Install-WettstaiFont.ps1` | Automatische Installation |
-| `Uninstall-WettstaiFont.ps1` | Entfernt alles wieder |
-| `README.md` | Diese Anleitung |
+*Oben das Originalpaket, unten das reparierte. Simulation nach den Regeln, die MuseScore
+Studio v4.6.5 im Quelltext tatsächlich anwendet.*
 
 ---
 
-## 🚀 Installation (empfohlen: automatisch)
+## Inhalt
 
-1. **Schließe MuseScore 4 komplett.** Auch im System-Tray rechtsklicken → Beenden.
-2. **Rechtsklick** auf `Install-WettstaiFont.ps1` → **„Mit PowerShell ausführen"**.
-3. Falls eine Sicherheitsabfrage kommt, „Ja" / „Trotzdem ausführen" anklicken.
-4. Das Skript installiert die Schrift an drei Stellen:
-   - Als Windows-Schriftart (User-Scope, kein Admin nötig)
-   - In `Dokumente\MuseScore4\MusicFonts\WettstaiFont\` (für MuseScore)
-   - In `%LOCALAPPDATA%\SMuFL\Fonts\WettstaiFont\` (für SMuFL-Standard)
+- [Kurzfassung: was war kaputt](#kurzfassung-was-war-kaputt)
+- [Installation](#installation)
+- [Symbole einfügen](#symbole-einfügen)
+- [Alle 60 Symbole](#alle-60-symbole)
+- [Die Befunde im Detail](#die-befunde-im-detail)
+- [Warum die Symbole auf `U+E770` liegen](#warum-die-symbole-auf-ue770-liegen)
+- [Projektaufbau, neu bauen und prüfen](#projektaufbau-neu-bauen-und-prüfen)
+- [Grenzen und nächste Schritte](#grenzen-und-nächste-schritte)
 
-Falls PowerShell die Skript-Ausführung blockiert:
+---
 
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-.\Install-WettstaiFont.ps1
+## Kurzfassung: was war kaputt
+
+Acht Fehler, davon drei so schwer, dass das Paket nicht funktionieren konnte:
+
+| | Befund | Folge | Status |
+|---|---|---|---|
+| 1 | Die 60 Wettstai-Symbole lagen ausschließlich auf `U+F400`–`U+F43B`. MuseScore kennt nur Symbole bis `U+EF08`. | **Kein einziges Symbol war einfügbar.** | behoben |
+| 2 | Zehn Platzhalter – identische schwarze Rechtecke – lagen auf echten Notationszeichen (`gClef`, `cClef`, `fClef`, `timeSig0/1/2`, `noteheadBlack`, `U+E000`–`E002`). | Schlüssel, Taktzahlen und Notenköpfe wurden als schwarze Kästen gezeichnet. | behoben |
+| 3 | Sechs Kopien der „Wert“-Zeichen lagen auf den Fähnchen-Codepoints `U+E240`–`U+E245`. | Alle Achtel-, Sechzehntel- und Zweiunddreissigstel-Fähnchen wurden zu gepunkteten Strichen. | behoben |
+| 4 | Der Installer setzte auf `Dokumente\MuseScore4\MusicFonts\`. Diesen Ordner durchsucht MuseScore ab Werk **gar nicht**. | Die Hauptinstallation lief ins Leere. | behoben |
+| 5 | Drei JSON-Dateien landeten im selben Schriftart-Ordner. MuseScore 4.6 nimmt eine beliebige davon. | Zufällig richtig oder falsch. | behoben |
+| 6 | Die Metadaten waren kein gültiges SMuFL (falsches Bounding-Box-Format, Font-Einheiten statt Notenzeilenabstände, vertauschte x/y-Werte, erfundene Schlüssel). | Andere Programme konnten nichts damit anfangen. | behoben |
+| 7 | Die Vorschubbreiten lagen zwischen 45 und 833 Einheiten, obwohl Zeichnungen bis 4199 Einheiten breit sind. | Symbole überlappten. | behoben |
+| 8 | Vertikale Metriken unpassend (`hhea.ascent` 2181 bei 1000 Einheiten pro Geviert, `sTypoDescender` 0 bei Zeichen bis −297). | Abgeschnittene Zeichen, falsche Zeilenhöhe. | behoben |
+
+Die **Zeichnungen selbst sind unverändert** – der Build prüft das bei jedem Lauf, indem
+er die Umrisse aller 60 Glyphen mit dem Original vergleicht.
+
+Alle Aussagen über MuseScore sind am Quelltext des Release-Tags **v4.6.5** geprüft, nicht
+aus der Dokumentation übernommen. Die Fundstellen stehen weiter unten und in
+`tools/verify_musescore.py`.
+
+---
+
+## Installation
+
+**Voraussetzung: MuseScore Studio 4.6 oder neuer** (*Hilfe → Über MuseScore*).
+Ältere 4.x-Versionen können fremde SMuFL-Schriften überhaupt nicht laden.
+
+1. MuseScore **komplett beenden** – auch im Infobereich neben der Uhr nachsehen.
+2. [`WettstaiFont-MuseScore4-Setup.zip`](WettstaiFont-MuseScore4-Setup.zip) herunterladen
+   und **vollständig entpacken**.
+3. Rechtsklick auf `Install-WettstaiFont.ps1` → **„Mit PowerShell ausführen“**.
+   Falls blockiert:
+   ```powershell
+   Set-ExecutionPolicy -Scope Process Bypass
+   .\Install-WettstaiFont.ps1
+   ```
+4. MuseScore neu starten.
+
+Das Skript legt an:
+
+| Ziel | Zweck |
+|---|---|
+| `%LOCALAPPDATA%\Microsoft\Windows\Fonts\WettstaiFont.otf` + Registry-Eintrag | Windows-Schriftart, Benutzerkonto, kein Admin nötig |
+| `%LOCALAPPDATA%\SMuFL\Fonts\WettstaiFont\WettstaiFont.json` | **der Weg, der ohne weitere Einstellung funktioniert** |
+| `Dokumente\MuseScore4\MusicFonts\WettstaiFont\` | Reserve; wirkt nur, wenn der Ordner in den Einstellungen eingetragen ist |
+
+Deinstallation: `Uninstall-WettstaiFont.ps1` genauso ausführen.
+
+---
+
+## Symbole einfügen
+
+1. **Ansicht → Master-Palette** (`Umschalt + F9`)
+2. Links **„Symbole“**
+3. Oben im Auswahlfeld **Font: `WettstaiFont`**
+4. Links die Gruppe **„Beaters pictograms“** – dort stehen alle 60 Wettstai-Symbole.
+   Der Eintrag heisst auch in einer deutschen Oberfläche englisch: MuseScore übersetzt
+   die Symbolgruppen nicht.
+5. Note im Notenblatt anklicken, Symbol in der Palette doppelklicken, mit den
+   Pfeiltasten fein positionieren
+
+**Die Musiksymbol-Schriftart des Notenblatts muss nicht umgestellt werden.** Noten,
+Schlüssel und Pausen kommen weiter aus Leland; jedes eingefügte Symbol speichert selbst,
+dass es aus `WettstaiFont` stammt (MuseScore schreibt `<Symbol><font>WettstaiFont</font>`
+in die Partiturdatei).
+
+Für häufig genutzte Zeichen lohnt eine eigene Palette: **Ansicht → Paletten**, unten
+**„+“ → Neue Palette erstellen**, dann Symbole per Drag & Drop hineinziehen.
+
+---
+
+## Alle 60 Symbole
+
+Vollständige Tabelle mit allen Codepoints: **[`package/Symbolliste.md`](package/Symbolliste.md)**
+
+![Symbolliste](docs/symbolliste.png)
+
+---
+
+## Die Befunde im Detail
+
+### 1. Die Symbole waren für MuseScore unsichtbar
+
+Der SMuFL-Standard sieht für eigene Zeichen den Bereich ab `U+F400` vor, und genau dort
+lagen die 60 Wettstai-Symbole. Nur: MuseScores Symbolwelt ist fest einkompiliert.
+
+`Smufl::loadGlyphNamesJson()` liest die **mitgelieferte** Datei
+`:/fonts/smufl/glyphnames.json` und ordnet jedem eingebauten `SymId` einen Codepoint zu –
+diese Datei reicht von `U+E000` bis `U+EF08`, 2932 Einträge, kein einziger ab `U+F000`.
+Die Master-Palette (`SymbolDialog::createSymbols()`), der Sonderzeichen-Dialog und der
+Schlagzeug-Editor laufen alle über `Smufl::smuflRanges()`, also über dieselbe eingebaute
+Liste. `EngravingFont::ensureLoad()` liest aus den Metadaten einer fremden Schrift nur
+`glyphsWithAnchors`, `glyphsWithAlternates` und `engravingDefaults` – der Block
+`optionalGlyphs`, in dem eigene Symbole laut Standard angemeldet werden, wird **nie
+gelesen**.
+
+Damit gab es keinen Weg, ein Zeichen aus `U+F400`+ in eine Partitur zu bekommen.
+
+**Behoben:** Jedes Symbol ist jetzt zusätzlich auf `U+E770`–`U+E7AB` erreichbar.
+Die Original-Codepoints `U+F400`–`U+F43B` bleiben erhalten, damit die Schrift für
+Dorico, Finale und andere SMuFL-Programme standardkonform bleibt.
+
+### 2. Platzhalter statt Rückfall auf Bravura
+
+Zehn Glyphen der Originalschrift waren **dasselbe schwarze Rechteck** (Umriss
+identisch, Kasten von 146,190 bis 762,472): `uniE000`, `uniE001`, `uniE002`, `gClef`,
+`cClef`, `fClef`, `timeSig0`, `timeSig1`, `timeSig2`, `noteheadBlack`.
+
+Die alte Anleitung behauptete, MuseScore lade Standardzeichen automatisch aus Bravura
+nach. Das stimmt – aber nur für Zeichen, die in der Schrift **fehlen**:
+
+```cpp
+// src/engraving/internal/engravingfont.cpp
+bool EngravingFont::useFallbackFont(SymId id) const
+{
+    return MScore::useFallbackFont && !sym(id).isValid() && !engravingFonts()->isFallbackFont(this);
+}
+// Sym::isValid() == code != 0 && bbox.isValid()
 ```
 
+Weil die Rechtecke vorhanden waren, galten sie als gültig – und wurden gezeichnet.
+
+**Behoben:** Die zehn Platzhalter sind entfernt. MuseScore fällt jetzt für Schlüssel,
+Taktzahlen und Notenköpfe auf Bravura zurück (siehe Bild oben).
+
+### 3. Zerschossene Fähnchen
+
+Auf `U+E240`–`U+E245` (`flag8thUp/Down`, `flag16thUp/Down`, `flag32ndUp/Down`) lagen
+Kopien der „Wert“-Zeichen – dieselben Umrisse wie `wert8el`, `wert16tel`, `wertQuintole`,
+nur vertikal verschoben. Sobald `WettstaiFont` als Musiksymbol-Schriftart eingestellt war,
+wurde jedes Fähnchen zu einem dünnen gepunkteten Strich.
+
+**Behoben:** Diese sechs Zuordnungen sind entfernt. Die Zeichen selbst bleiben als
+normale Wettstai-Symbole erhalten (Nr. 55–60 in der Symbolliste).
+
+> Falls das Absicht war und Achtel wirklich Wettstai-Wertzeichen statt Fähnchen tragen
+> sollen: das ist möglich, aber es ist eine eigene Entscheidung mit Nebenwirkungen für
+> die ganze Partitur. Sag Bescheid, dann baue ich es als bewusst gewählte Variante ein.
+
+### 4. Der MusicFonts-Ordner wird ab Werk nicht durchsucht
+
+```cpp
+// src/notation/internal/notationconfiguration.cpp (v4.6.5)
+settings()->setDefaultValue(USER_MUSIC_FONTS_PATH, Val(io::path_t {}));   // leer!
+
+// src/notation/internal/engravingfontscontroller.cpp
+muse::io::path_t userFontsPath = configuration()->userMusicFontsPath();
+if (!userFontsPath.empty()) {
+    scanDirectory(userFontsPath, true);
+}
+```
+
+Der Standardwert ist ein **leerer Pfad** – zum Vergleich: `USER_STYLES_PATH` gleich
+darüber bekommt einen echten Vorgabepfad. Solange in *Bearbeiten → Einstellungen →
+Ordner → „Musiksymbol-Schriftarten“* nichts eingetragen ist, wird der private Ordner
+übersprungen. Der alte Installer legte seine Hauptinstallation genau dort ab.
+
+Immer durchsucht werden dagegen `%LOCALAPPDATA%\SMuFL\Fonts` und
+`%CommonProgramFiles%\SMuFL\Fonts`.
+
+**Behoben:** Der Installer schreibt jetzt in erster Linie den globalen SMuFL-Ordner. Der
+MusicFonts-Ordner wird weiter befüllt, aber nur noch als Reserve; das Skript nennt am
+Ende den Pfad, den man dafür in die Einstellungen eintragen müsste.
+
+### 5. Drei JSON-Dateien in einem Ordner
+
+```cpp
+// src/notation/internal/engravingfontscontroller.cpp (v4.6.5), scanDirectory()
+QDirIterator jsonFilesIterator(fontDir, { "*.json" }, QDir::Files);
+while (jsonFilesIterator.hasNext()) {
+    jsonFilesIterator.next();
+    metadataPath = jsonFilesIterator.filePath();   // die letzte gewinnt
+}
+```
+
+Der alte Installer kopierte `WettstaiFont.json`, `metadata.json` **und**
+`glyphnames.json` in denselben Ordner. Welche davon MuseScore nimmt, hängt von der
+Reihenfolge des Dateisystems ab.
+
+**Behoben:** In jedem Schriftart-Ordner liegt genau eine JSON-Datei. Der Installer räumt
+alte Reste vorher weg.
+
+### 6. Die Metadaten waren kein SMuFL
+
+Beispiel `ruf21Rechts` – tatsächlich 4199 Einheiten breit und 397 hoch:
+
+```json
+"ruf21Rechts": [19, -4007, 211, 0]
+```
+
+Falsches Format (SMuFL verlangt `{"bBoxNE": [...], "bBoxSW": [...]}`), Font-Einheiten
+statt Notenzeilenabständen, und x und y vertauscht. Dazu die Schlüssel `glyphs`,
+`glyphClasses` und `ranges`, die es im SMuFL-Metadatenformat nicht gibt, und Codepoints
+ohne `U+`-Präfix in `glyphnames.json`.
+
+Für MuseScore war das folgenlos – es liest diese Blöcke ohnehin nicht und nimmt die
+Maße direkt aus der Schriftdatei (`EngravingFont::computeMetrics()`). Für jedes andere
+SMuFL-Programm war die Datei unbrauchbar.
+
+**Behoben:** Die Metadaten werden von `tools/build_metadata.py` aus der fertigen
+Schriftdatei erzeugt und können damit nicht mehr auseinanderlaufen. `verify_musescore.py`
+rechnet jeden Wert gegen die Schrift nach.
+
+### 7. und 8. Vorschubbreiten und vertikale Metriken
+
+Vorschubbreiten von 45 bis 833 Einheiten bei Zeichnungen bis 4199 Einheiten Breite;
+`hhea.ascent` 2181 und `sTypoDescender` 0 bei 1000 Einheiten pro Geviert.
+
+**Behoben:** Vorschub = Zeichnungsbreite + 30 Einheiten Seitenabstand; Metriken so
+gesetzt, dass sie alle Zeichen einschliessen (Aufstrich 1206, Abstrich −250).
+
 ---
 
-## 🛠 Installation (manuell, falls du es lieber selbst machen willst)
+## Warum die Symbole auf `U+E770` liegen
 
-### Schritt 1: Schriftart in Windows installieren
+`U+E770`–`U+E7EF` ist der SMuFL-Bereich **„Beaters pictograms“** (Schlägel-Piktogramme:
+Pauken-, Xylophon- und Grosstrommelschlägel). 128 Plätze, von denen 60 gebraucht werden.
 
-Doppelklick auf `WettstaiFont.otf` → Button „Installieren". Damit ist die Schrift in jedem Programm verfügbar.
+Der Bereich wurde gewählt, weil MuseScore ihn kennt, weil er in der Palette bei den
+Schlaginstrumenten einsortiert ist – und weil Basler Trommelmusik keine Schlägel-Piktogramme
+braucht. Das ist ein bewusster Kompromiss mit zwei Folgen:
 
-### Schritt 2: SMuFL-Metadaten für MuseScore ablegen
+- In der Master-Palette heissen die Felder weiterhin `pictBeater…`. Man sieht aber die
+  Wettstai-Zeichen und kann sie so erkennen; die Zuordnung steht in `Symbolliste.md`.
+- Eine Partitur speichert den SMuFL-Namen. Öffnet sie jemand ohne die Schrift, erscheinen
+  dort Schlägel-Piktogramme statt Wettstai-Zeichen.
 
-Lege diesen Ordner an:
+Ein anderer Bereich ist leicht einstellbar: `ALIAS_BLOCK_START` in
+`tools/wettstai_glyphs.py` ändern und neu bauen.
+
+---
+
+## Projektaufbau, neu bauen und prüfen
 
 ```
-C:\Users\<DEIN-NAME>\Documents\MuseScore4\MusicFonts\WettstaiFont\
+README.md                            diese Datei
+WettstaiFont-MuseScore4-Setup.zip    fertiges Paket zum Verteilen
+package/                             Inhalt des ZIP, einzeln im Git nachvollziehbar
+  WettstaiFont.otf                   reparierte Schrift
+  WettstaiFont.json                  SMuFL-Metadaten
+  glyphnames.json                    Namen und Codepoints
+  Symbolliste.md                     Tabelle aller 60 Symbole (generiert)
+  LIESMICH.md                        Kurzanleitung im Paket
+  Install-WettstaiFont.ps1
+  Uninstall-WettstaiFont.ps1
+docs/                                Vorher/Nachher-Bild und Symbolübersicht (generiert)
+tools/
+  WettstaiFont-original.otf          unveränderte Originalschrift als Referenz
+  wettstai_glyphs.py                 Glyphenliste und Codepoint-Zuordnung
+  build_font.py                      baut die OTF aus dem Original
+  build_metadata.py                  erzeugt Metadaten und Symbolliste
+  render_preview.py                  erzeugt die Bilder in docs/
+  verify_musescore.py                prüft alles gegen MuseScores Laderegeln
+  build_package.py                   ruft alles auf und packt das ZIP
 ```
 
-Kopiere dort hinein:
-
-```
-WettstaiFont.otf
-WettstaiFont.json
-```
-
-> **Wichtig:** Der Ordnername muss **exakt** `WettstaiFont` heißen (Groß-/Kleinschreibung beachten, gleicher Name wie die Schrift).
-
-### Schritt 3 (optional): SMuFL-Systempfad
-
-Damit auch andere Notationssoftware (z. B. Dorico, Finale 27) die Schrift findet, lege zusätzlich an:
-
-```
-C:\Users\<DEIN-NAME>\AppData\Local\SMuFL\Fonts\WettstaiFont\WettstaiFont.json
+```bash
+pip install fonttools            # cairosvg zusätzlich für die PNG-Ausgabe
+python3 tools/build_package.py   # alles neu bauen
+python3 tools/verify_musescore.py   # nur prüfen
 ```
 
-Den `AppData`-Ordner erreichst du über `Win+R` → `%LOCALAPPDATA%` eingeben.
+`verify_musescore.py` bildet MuseScores Laderegeln nach und ist die Antwort auf die
+Frage „funktioniert es jetzt wirklich?“, soweit sie ohne laufendes Windows-MuseScore
+beantwortbar ist. Es prüft unter anderem, dass kein Standardzeichen mehr überschrieben
+wird, dass alle 60 Symbole im erreichbaren Bereich liegen, dass in einem Schriftart-Ordner
+genau eine JSON-Datei landet und dass sämtliche Umrisse mit dem Original übereinstimmen.
 
 ---
 
-## ✅ Prüfen, ob es geklappt hat
+## Grenzen und nächste Schritte
 
-1. MuseScore 4 **neu starten** (vollständiger Neustart, kein Reload).
-2. **Format → Stil… → Notensatz** (engl.: Format → Style → Score).
-3. Im Dropdown **„Musiksymbol-Schriftart"** (engl. Musical Symbol Font) sollte `WettstaiFont` jetzt auftauchen.
-
-Wenn `WettstaiFont` dort **nicht** erscheint:
-
-- Hast du wirklich MuseScore 4.6 oder neuer?
-- Ist die JSON-Datei im richtigen Ordner und heißt exakt `WettstaiFont.json` (nicht `WettstaiFont_metadata.json`)?
-- Hast du MuseScore 4 komplett neu gestartet (inkl. Tray-Symbol)?
-
----
-
-## 🥁 Wie du die Wettstai-Symbole im Score einfügst
-
-Wichtig zu verstehen: Deine `WettstaiFont` enthält **76 Glyphen** – das sind v. a. die 60 Wettstai-Trommel-Symbole im SMuFL-Optional-Bereich (`U+F400` bis `U+F43B`). Es ist **keine vollständige Ersatz-Notenschrift** wie Bravura. Das heißt:
-
-- Standard-Notation (Noten, Pausen, Vorzeichen, Schlüssel …) zeichnet MuseScore weiterhin mit Bravura (Fallback).
-- Deine Wettstai-Symbole fügst du als **Einzel-Symbole** über die Master-Palette ein.
-
-### Symbole einfügen – Schritt für Schritt
-
-1. **Master-Palette öffnen:** `Ansicht → Master-Palette` oder `Umschalt + F9`.
-2. Links auf **„Symbole"** klicken.
-3. Oben im Dropdown **„Font"** die Schriftart **`WettstaiFont`** wählen.
-4. Du siehst alle 60 Wettstai-Glyphen (im Bereich `U+F400+`).
-5. Markiere im Score eine Note (oder eine Pause), und doppelklicke auf das gewünschte Symbol in der Palette. Das Symbol wird an die Note angeheftet.
-6. **Mit Maus oder Pfeiltasten verschieben** zur exakten Positionierung.
-
-### Eigene Palette anlegen (Tipp für intensive Nutzung)
-
-Damit du nicht jedes Mal durch die Master-Palette navigieren musst:
-
-1. **Ansicht → Paletten** öffnen (links).
-2. Unten auf das **„+"** → „Neue Palette erstellen" → Name: z. B. „Wettstai".
-3. Aus der Master-Palette (Symbole, `WettstaiFont`) die häufig genutzten Symbole per **Drag & Drop** in deine neue Palette ziehen.
-4. Diese Palette bleibt dauerhaft sichtbar und steht in jedem Score sofort zur Verfügung.
+- **Nicht auf echtem MuseScore getestet.** In dieser Umgebung war kein Windows und kein
+  MuseScore-Download verfügbar (der Egress-Proxy blockt `musescore.org` und die
+  GitHub-Releases). Geprüft ist gegen den Quelltext von v4.6.5 und mit dem
+  Simulationsskript. Der erste echte Test ist der auf deinem Rechner – wenn etwas nicht
+  passt, hilft die Ausgabe von `verify_musescore.py` beim Eingrenzen.
+- **Keine SMuFL-Anker.** Die Symbole haben keine `glyphsWithAnchors`, hängen also nicht
+  automatisch am Notenkopf oder am Hals. Für das Einfügen als Einzelsymbol mit
+  anschliessendem Feinschieben ist das genau richtig.
+- **Grössen und Höhenlage.** Die Zeichen sind unverändert übernommen. Beim Einfügen
+  sitzen sie deshalb unterschiedlich hoch (gut im Vorher/Nachher-Bild zu sehen). Falls
+  sie einheitlich auf einer Linie sitzen sollen, lässt sich das mit einer
+  Vertikalverschiebung pro Glyphe im Build glattziehen – dazu bräuchte ich von dir die
+  gewünschte Bezugslinie.
+- **Eigene Schlagzeug-Definition (`.drm`).** Wenn ganze Stücke in Wettstai-Notation
+  entstehen sollen statt einzelner Symbole, wäre eine Drumset-Definition mit den
+  Wettstai-Zeichen als Notenkopf der nächste Schritt. Dafür müssten die Symbole allerdings
+  in einen anderen Bereich umziehen: der Schlagzeug-Editor bietet als Notenköpfe nur die
+  sechs Notenkopf-Bereiche an (`validNoteheadRanges` in `customizekitdialog.cpp`),
+  „Beaters pictograms“ gehört nicht dazu. „Note name noteheads“ (`U+E150`, 96 Plätze)
+  wäre gross genug. Sag Bescheid, wenn du in diese Richtung willst – dann baue ich eine
+  zweite Variante der Schrift dafür.
 
 ---
 
-## 📋 Liste der Wettstai-Glyphen
+## Quellen
 
-Die Schrift enthält folgende 60 Trommel-Symbole (Codepoint → Name):
-
-| Codepoint | Glyph-Name | Bedeutung |
-|-----------|-----------|-----------|
-| U+F400 | bataflafla | Bataflafla |
-| U+F401 / F402 | bataflaLinks / bataflaRechts | Batafla L/R |
-| U+F403 | coupeDeCharge | Coupe de charge |
-| U+F404 / F405 | doppelDWLinks / doppelDWRechts | Doppel-Doppelschlag L/R |
-| U+F406 | double2 | Double (Variante 2) |
-| U+F407 / F408 | doubleLinks / doubleRechts | Double L/R |
-| U+F409 / F40A | dupfLinks / dupfRechts | Dupf L/R |
-| U+F40B / F40C | endstraichLinks / endstraichRechts | Endstreich L/R |
-| U+F40D / F40E | maermeliLinks / maermeliRechts | Märmeli L/R |
-| U+F40F | muehlerad | Mühlerad |
-| U+F410 / F411 | paradiddleLinks / paradiddleRechts | Paradiddle L/R |
-| U+F412 – F427 | ruf3 … ruf21 (L/R) | Ruf 3, 4, 5, 7, 9, 11, 13, 15, 17, 19, 21 |
-| U+F428 / F429 | schlepp3erliLinks / schlepp3erliRechts | Schlepp-3erli L/R |
-| U+F42A | schlepp5er | Schlepp-5er |
-| U+F42B | schlepp9er | Schlepp-9er |
-| U+F42C / F42D | schleppLinks / schleppRechts | Schlepp L/R |
-| U+F42E / F42F | straich3Links / straich3Rechts | Straich-3 L/R |
-| U+F430 / F431 | udoppelDWLinks / uDoppelDWRechts | U-Doppel L/R |
-| U+F432 / F433 | uEndstraichLinks / uEndstraichRechts | U-Endstreich L/R |
-| U+F434 / F435 | ruf5PunktiertLinks / ruf5PunktiertRechts | Ruf 5 punktiert L/R |
-| U+F436 / F437 | wert8el / wert8el2 | Notenwert Achtel (2 Varianten) |
-| U+F438 / F439 | wert16tel / wert16tel2 | Notenwert Sechzehntel (2 Varianten) |
-| U+F43A / F43B | wertQuintole / wertQuintole2 | Notenwert Quintole (2 Varianten) |
-
----
-
-## 🧪 Bekannte Einschränkungen
-
-1. **Keine vollständige SMuFL-Abdeckung.** Wenn du die Schrift unter `Format → Stil → Notensatz` als globale Music-Font wählst, werden die Standard-Glyphen (Notenköpfe, Schlüssel, Pausen …) automatisch aus Bravura nachgeladen (Fallback). Das ist normal und gewollt.
-
-2. **`engravingDefaults`** sind auf Bravura-Standardwerte gesetzt. Falls deine Schrift optisch andere Linienstärken braucht, kannst du die Werte in `WettstaiFont.json` anpassen und das Install-Skript neu ausführen.
-
-3. **Keine `glyphsWithAnchors`.** Wettstai-Symbole haben keine SMuFL-Anker (für Notenkopf-Cutouts, Stem-Connections etc.). Sie werden als freistehende Symbole eingefügt – das ist für deinen Use-Case (manuelles Anheften an Noten) genau richtig.
-
-4. **Drumset-Definition als nächster Schritt:** Wenn du später ganze Stücke in Wettstai-Notation schreiben willst (statt nur einzelne Symbole einzufügen), wäre der nächste sinnvolle Schritt eine eigene **Drumset-Definition (.drm)** mit den Wettstai-Symbolen als Notenkopf-Ersatz. Sag mir Bescheid, wenn ich das auch noch bauen soll.
-
----
-
-## 🐛 Troubleshooting
-
-**Problem: Schrift erscheint nicht in MuseScore.**
-- Version prüfen (muss ≥ 4.6 sein).
-- MuseScore wirklich komplett geschlossen vor Installation?
-- Tray-Symbol prüfen (Pfeil neben der Uhr) – manchmal läuft MuseScore dort weiter.
-- `Documents\MuseScore4\MusicFonts\WettstaiFont\WettstaiFont.json` wirklich vorhanden?
-
-**Problem: Glyphen werden als Rechtecke / leere Kästchen angezeigt.**
-- Die OTF-Datei ist nicht als Windows-Schriftart installiert. Doppelklick auf die OTF → „Installieren".
-
-**Problem: PowerShell-Skript wird blockiert.**
-- Im PowerShell-Fenster ausführen: `Set-ExecutionPolicy -Scope Process Bypass`, dann das Skript starten.
-
-**Problem: Glyphen werden in falscher Größe / Position angezeigt.**
-- Beim ersten Test in einem leeren Score versuchen. Das Symbol per Mausklick auswählen und mit den Pfeiltasten korrekt positionieren. Bei systematisch falscher Größe müssen die `glyphAdvanceWidths` oder `glyphBBoxes` in der JSON neu kalibriert werden.
-
----
-
-## 📚 Weiterführende Links
-
-- SMuFL-Spezifikation: <https://w3c.github.io/smufl/latest/>
-- MuseScore-Handbuch (Music Fonts): <https://handbook.musescore.org/appendix/music-fonts>
-- Wettstai-Notation Basel-Trommel: Suche nach „Berger Notation" oder „Wettstai".
-
----
-
-*Erstellt für MuseScore 4.6+ unter Windows 11.*
+- MuseScore Studio, Quelltext v4.6.5 – `engravingfontscontroller.cpp`,
+  `engravingfont.cpp`, `notationconfiguration.cpp`, `smufl.cpp`, `symboldialog.cpp`
+- [SMuFL-Spezifikation](https://w3c.github.io/smufl/latest/)
+- [MuseScore-Handbuch: Music fonts](https://handbook.musescore.org/appendix/music-fonts)
+- Bravura wird in dieser Dokumentation nur zur Darstellung der Rückfall-Zeichen in den
+  Vorschaubildern verwendet (SIL Open Font License, Steinberg Media Technologies).

@@ -1,0 +1,1791 @@
+{
+  "fontName": "WettstaiFont",
+  "fontVersion": 2.0,
+  "engravingDefaults": {
+    "arrowShaftThickness": 0.16,
+    "barlineSeparation": 0.4,
+    "beamSpacing": 0.25,
+    "beamThickness": 0.5,
+    "bracketThickness": 0.5,
+    "dashedBarlineDashLength": 0.5,
+    "dashedBarlineGapLength": 0.25,
+    "dashedBarlineThickness": 0.16,
+    "hBarThickness": 1.0,
+    "hairpinThickness": 0.16,
+    "legerLineExtension": 0.4,
+    "legerLineThickness": 0.16,
+    "lyricLineThickness": 0.16,
+    "octaveLineThickness": 0.16,
+    "pedalLineThickness": 0.16,
+    "repeatBarlineDotSeparation": 0.16,
+    "repeatEndingLineThickness": 0.16,
+    "slurEndpointThickness": 0.1,
+    "slurMidpointThickness": 0.22,
+    "staffLineThickness": 0.13,
+    "stemThickness": 0.12,
+    "subBracketThickness": 0.16,
+    "textEnclosureThickness": 0.16,
+    "textFontFamily": [
+      "Edwin",
+      "Academico",
+      "Century Schoolbook",
+      "serif"
+    ],
+    "thickBarlineThickness": 0.5,
+    "thinBarlineThickness": 0.16,
+    "thinThickBarlineSeparation": 0.4,
+    "tieEndpointThickness": 0.1,
+    "tieMidpointThickness": 0.22,
+    "tupletBracketThickness": 0.16
+  },
+  "glyphAdvanceWidths": {
+    "bataflafla": 3.764,
+    "pictBeaterSoftXylophoneUp": 3.764,
+    "bataflaLinks": 3.34,
+    "pictBeaterSoftXylophoneDown": 3.34,
+    "bataflaRechts": 3.32,
+    "pictBeaterSoftXylophoneRight": 3.32,
+    "coupeDeCharge": 3.844,
+    "pictBeaterSoftXylophoneLeft": 3.844,
+    "doppelDWLinks": 3.572,
+    "pictBeaterMediumXylophoneUp": 3.572,
+    "doppelDWRechts": 3.624,
+    "pictBeaterMediumXylophoneDown": 3.624,
+    "double2": 2.824,
+    "pictBeaterMediumXylophoneRight": 2.824,
+    "doubleLinks": 2.008,
+    "pictBeaterMediumXylophoneLeft": 2.008,
+    "doubleRechts": 1.8,
+    "pictBeaterHardXylophoneUp": 1.8,
+    "dupfLinks": 0.684,
+    "pictBeaterHardXylophoneDown": 0.684,
+    "dupfRechts": 1.076,
+    "pictBeaterHardXylophoneRight": 1.076,
+    "endstraichLinks": 3.736,
+    "pictBeaterHardXylophoneLeft": 3.736,
+    "endstraichRechts": 3.684,
+    "pictBeaterWoodXylophoneUp": 3.684,
+    "maermeliLinks": 2.848,
+    "pictBeaterWoodXylophoneDown": 2.848,
+    "maermeliRechts": 2.88,
+    "pictBeaterWoodXylophoneRight": 2.88,
+    "muehlerad": 3.188,
+    "pictBeaterWoodXylophoneLeft": 3.188,
+    "paradiddleLinks": 3.176,
+    "pictBeaterSoftGlockenspielUp": 3.176,
+    "paradiddleRechts": 3.172,
+    "pictBeaterSoftGlockenspielDown": 3.172,
+    "ruf3Links": 1.272,
+    "pictBeaterSoftGlockenspielRight": 1.272,
+    "ruf3Rechts": 1.264,
+    "pictBeaterSoftGlockenspielLeft": 1.264,
+    "ruf4Links": 2.276,
+    "pictBeaterHardGlockenspielUp": 2.276,
+    "ruf4Rechts": 2.228,
+    "pictBeaterHardGlockenspielDown": 2.228,
+    "ruf5Links": 1.76,
+    "pictBeaterHardGlockenspielRight": 1.76,
+    "ruf5Rechts": 1.732,
+    "pictBeaterHardGlockenspielLeft": 1.732,
+    "ruf7Links": 2.232,
+    "pictBeaterSoftTimpaniUp": 2.232,
+    "ruf7Rechts": 2.204,
+    "pictBeaterSoftTimpaniDown": 2.204,
+    "ruf9Links": 3.948,
+    "pictBeaterSoftTimpaniRight": 3.948,
+    "ruf9Rechts": 3.924,
+    "pictBeaterSoftTimpaniLeft": 3.924,
+    "ruf11Links": 5.592,
+    "pictBeaterMediumTimpaniUp": 5.592,
+    "ruf11Rechts": 5.568,
+    "pictBeaterMediumTimpaniDown": 5.568,
+    "ruf13Links": 5.608,
+    "pictBeaterMediumTimpaniRight": 5.608,
+    "ruf13Rechts": 5.608,
+    "pictBeaterMediumTimpaniLeft": 5.608,
+    "ruf15Links": 11.376,
+    "pictBeaterHardTimpaniUp": 11.376,
+    "ruf15Rechts": 11.364,
+    "pictBeaterHardTimpaniDown": 11.364,
+    "ruf17Links": 11.392,
+    "pictBeaterHardTimpaniRight": 11.392,
+    "ruf17Rechts": 11.384,
+    "pictBeaterHardTimpaniLeft": 11.384,
+    "ruf19Links": 11.368,
+    "pictBeaterWoodTimpaniUp": 11.368,
+    "ruf19Rechts": 11.36,
+    "pictBeaterWoodTimpaniDown": 11.36,
+    "ruf21Rechts": 16.916,
+    "pictBeaterWoodTimpaniRight": 16.916,
+    "ruf21Links": 16.884,
+    "pictBeaterWoodTimpaniLeft": 16.884,
+    "schlepp3erliLinks": 1.572,
+    "pictBeaterSoftBassDrumUp": 1.572,
+    "schlepp3erliRechts": 1.544,
+    "pictBeaterSoftBassDrumDown": 1.544,
+    "schlepp5er": 3.664,
+    "pictBeaterMediumBassDrumUp": 3.664,
+    "schlepp9er": 6.592,
+    "pictBeaterMediumBassDrumDown": 6.592,
+    "schleppLinks": 0.856,
+    "pictBeaterHardBassDrumUp": 0.856,
+    "schleppRechts": 0.852,
+    "pictBeaterHardBassDrumDown": 0.852,
+    "straich3Links": 2.524,
+    "pictBeaterMetalBassDrumUp": 2.524,
+    "straich3Rechts": 2.508,
+    "pictBeaterMetalBassDrumDown": 2.508,
+    "udoppelDWLinks": 3.608,
+    "pictBeaterDoubleBassDrumUp": 3.608,
+    "uDoppelDWRechts": 3.568,
+    "pictBeaterDoubleBassDrumDown": 3.568,
+    "uEndstraichLinks": 3.18,
+    "pictBeaterSoftYarnUp": 3.18,
+    "uEndstraichRechts": 3.192,
+    "pictBeaterSoftYarnDown": 3.192,
+    "ruf5PunktiertLinks": 2.388,
+    "pictBeaterSoftYarnRight": 2.388,
+    "ruf5PunktiertRechts": 2.332,
+    "pictBeaterSoftYarnLeft": 2.332,
+    "wert8el": 0.476,
+    "pictBeaterMediumYarnUp": 0.476,
+    "wert8el2": 0.476,
+    "pictBeaterMediumYarnDown": 0.476,
+    "wert16tel": 0.568,
+    "pictBeaterMediumYarnRight": 0.568,
+    "wert16tel2": 0.568,
+    "pictBeaterMediumYarnLeft": 0.568,
+    "wertQuintole": 0.552,
+    "pictBeaterHardYarnUp": 0.552,
+    "wertQuintole2": 0.552,
+    "pictBeaterHardYarnDown": 0.552
+  },
+  "glyphBBoxes": {
+    "bataflafla": {
+      "bBoxNE": [
+        3.644,
+        3.136
+      ],
+      "bBoxSW": [
+        0.332,
+        0.016
+      ]
+    },
+    "pictBeaterSoftXylophoneUp": {
+      "bBoxNE": [
+        3.644,
+        3.136
+      ],
+      "bBoxSW": [
+        0.332,
+        0.016
+      ]
+    },
+    "bataflaLinks": {
+      "bBoxNE": [
+        3.22,
+        3.14
+      ],
+      "bBoxSW": [
+        0.228,
+        0.02
+      ]
+    },
+    "pictBeaterSoftXylophoneDown": {
+      "bBoxNE": [
+        3.22,
+        3.14
+      ],
+      "bBoxSW": [
+        0.228,
+        0.02
+      ]
+    },
+    "bataflaRechts": {
+      "bBoxNE": [
+        3.2,
+        3.136
+      ],
+      "bBoxSW": [
+        0.208,
+        0.016
+      ]
+    },
+    "pictBeaterSoftXylophoneRight": {
+      "bBoxNE": [
+        3.2,
+        3.136
+      ],
+      "bBoxSW": [
+        0.208,
+        0.016
+      ]
+    },
+    "coupeDeCharge": {
+      "bBoxNE": [
+        3.724,
+        3.132
+      ],
+      "bBoxSW": [
+        0.204,
+        0.012
+      ]
+    },
+    "pictBeaterSoftXylophoneLeft": {
+      "bBoxNE": [
+        3.724,
+        3.132
+      ],
+      "bBoxSW": [
+        0.204,
+        0.012
+      ]
+    },
+    "doppelDWLinks": {
+      "bBoxNE": [
+        3.452,
+        3.144
+      ],
+      "bBoxSW": [
+        0.044,
+        0.024
+      ]
+    },
+    "pictBeaterMediumXylophoneUp": {
+      "bBoxNE": [
+        3.452,
+        3.144
+      ],
+      "bBoxSW": [
+        0.044,
+        0.024
+      ]
+    },
+    "doppelDWRechts": {
+      "bBoxNE": [
+        3.504,
+        3.144
+      ],
+      "bBoxSW": [
+        0.08,
+        0.024
+      ]
+    },
+    "pictBeaterMediumXylophoneDown": {
+      "bBoxNE": [
+        3.504,
+        3.144
+      ],
+      "bBoxSW": [
+        0.08,
+        0.024
+      ]
+    },
+    "double2": {
+      "bBoxNE": [
+        2.704,
+        3.192
+      ],
+      "bBoxSW": [
+        0.272,
+        0.472
+      ]
+    },
+    "pictBeaterMediumXylophoneRight": {
+      "bBoxNE": [
+        2.704,
+        3.192
+      ],
+      "bBoxSW": [
+        0.272,
+        0.472
+      ]
+    },
+    "doubleLinks": {
+      "bBoxNE": [
+        1.888,
+        3.18
+      ],
+      "bBoxSW": [
+        1.376,
+        2.7
+      ]
+    },
+    "pictBeaterMediumXylophoneLeft": {
+      "bBoxNE": [
+        1.888,
+        3.18
+      ],
+      "bBoxSW": [
+        1.376,
+        2.7
+      ]
+    },
+    "doubleRechts": {
+      "bBoxNE": [
+        1.68,
+        0.972
+      ],
+      "bBoxSW": [
+        1.168,
+        0.492
+      ]
+    },
+    "pictBeaterHardXylophoneUp": {
+      "bBoxNE": [
+        1.68,
+        0.972
+      ],
+      "bBoxSW": [
+        1.168,
+        0.492
+      ]
+    },
+    "dupfLinks": {
+      "bBoxNE": [
+        0.564,
+        3.172
+      ],
+      "bBoxSW": [
+        0.436,
+        1.86
+      ]
+    },
+    "pictBeaterHardXylophoneDown": {
+      "bBoxNE": [
+        0.564,
+        3.172
+      ],
+      "bBoxSW": [
+        0.436,
+        1.86
+      ]
+    },
+    "dupfRechts": {
+      "bBoxNE": [
+        0.956,
+        1.368
+      ],
+      "bBoxSW": [
+        0.796,
+        0.008
+      ]
+    },
+    "pictBeaterHardXylophoneRight": {
+      "bBoxNE": [
+        0.956,
+        1.368
+      ],
+      "bBoxSW": [
+        0.796,
+        0.008
+      ]
+    },
+    "endstraichLinks": {
+      "bBoxNE": [
+        3.616,
+        3.14
+      ],
+      "bBoxSW": [
+        0.096,
+        0.02
+      ]
+    },
+    "pictBeaterHardXylophoneLeft": {
+      "bBoxNE": [
+        3.616,
+        3.14
+      ],
+      "bBoxSW": [
+        0.096,
+        0.02
+      ]
+    },
+    "endstraichRechts": {
+      "bBoxNE": [
+        3.564,
+        3.128
+      ],
+      "bBoxSW": [
+        0.044,
+        0.008
+      ]
+    },
+    "pictBeaterWoodXylophoneUp": {
+      "bBoxNE": [
+        3.564,
+        3.128
+      ],
+      "bBoxSW": [
+        0.044,
+        0.008
+      ]
+    },
+    "maermeliLinks": {
+      "bBoxNE": [
+        2.728,
+        3.148
+      ],
+      "bBoxSW": [
+        0.024,
+        0.028
+      ]
+    },
+    "pictBeaterWoodXylophoneDown": {
+      "bBoxNE": [
+        2.728,
+        3.148
+      ],
+      "bBoxSW": [
+        0.024,
+        0.028
+      ]
+    },
+    "maermeliRechts": {
+      "bBoxNE": [
+        2.76,
+        3.136
+      ],
+      "bBoxSW": [
+        0.04,
+        0.016
+      ]
+    },
+    "pictBeaterWoodXylophoneRight": {
+      "bBoxNE": [
+        2.76,
+        3.136
+      ],
+      "bBoxSW": [
+        0.04,
+        0.016
+      ]
+    },
+    "muehlerad": {
+      "bBoxNE": [
+        3.068,
+        3.14
+      ],
+      "bBoxSW": [
+        0.028,
+        0.02
+      ]
+    },
+    "pictBeaterWoodXylophoneLeft": {
+      "bBoxNE": [
+        3.068,
+        3.14
+      ],
+      "bBoxSW": [
+        0.028,
+        0.02
+      ]
+    },
+    "paradiddleLinks": {
+      "bBoxNE": [
+        3.056,
+        3.136
+      ],
+      "bBoxSW": [
+        0.016,
+        0.016
+      ]
+    },
+    "pictBeaterSoftGlockenspielUp": {
+      "bBoxNE": [
+        3.056,
+        3.136
+      ],
+      "bBoxSW": [
+        0.016,
+        0.016
+      ]
+    },
+    "paradiddleRechts": {
+      "bBoxNE": [
+        3.052,
+        3.136
+      ],
+      "bBoxSW": [
+        0.012,
+        0.016
+      ]
+    },
+    "pictBeaterSoftGlockenspielDown": {
+      "bBoxNE": [
+        3.052,
+        3.136
+      ],
+      "bBoxSW": [
+        0.012,
+        0.016
+      ]
+    },
+    "ruf3Links": {
+      "bBoxNE": [
+        1.152,
+        3.128
+      ],
+      "bBoxSW": [
+        0.032,
+        1.816
+      ]
+    },
+    "pictBeaterSoftGlockenspielRight": {
+      "bBoxNE": [
+        1.152,
+        3.128
+      ],
+      "bBoxSW": [
+        0.032,
+        1.816
+      ]
+    },
+    "ruf3Rechts": {
+      "bBoxNE": [
+        1.144,
+        1.32
+      ],
+      "bBoxSW": [
+        0.024,
+        0.008
+      ]
+    },
+    "pictBeaterSoftGlockenspielLeft": {
+      "bBoxNE": [
+        1.144,
+        1.32
+      ],
+      "bBoxSW": [
+        0.024,
+        0.008
+      ]
+    },
+    "ruf4Links": {
+      "bBoxNE": [
+        2.156,
+        3.112
+      ],
+      "bBoxSW": [
+        0.076,
+        1.8
+      ]
+    },
+    "pictBeaterHardGlockenspielUp": {
+      "bBoxNE": [
+        2.156,
+        3.112
+      ],
+      "bBoxSW": [
+        0.076,
+        1.8
+      ]
+    },
+    "ruf4Rechts": {
+      "bBoxNE": [
+        2.108,
+        1.32
+      ],
+      "bBoxSW": [
+        0.028,
+        0.008
+      ]
+    },
+    "pictBeaterHardGlockenspielDown": {
+      "bBoxNE": [
+        2.108,
+        1.32
+      ],
+      "bBoxSW": [
+        0.028,
+        0.008
+      ]
+    },
+    "ruf5Links": {
+      "bBoxNE": [
+        1.64,
+        3.116
+      ],
+      "bBoxSW": [
+        0.04,
+        1.804
+      ]
+    },
+    "pictBeaterHardGlockenspielRight": {
+      "bBoxNE": [
+        1.64,
+        3.116
+      ],
+      "bBoxSW": [
+        0.04,
+        1.804
+      ]
+    },
+    "ruf5Rechts": {
+      "bBoxNE": [
+        1.612,
+        1.38
+      ],
+      "bBoxSW": [
+        0.012,
+        0.068
+      ]
+    },
+    "pictBeaterHardGlockenspielLeft": {
+      "bBoxNE": [
+        1.612,
+        1.38
+      ],
+      "bBoxSW": [
+        0.012,
+        0.068
+      ]
+    },
+    "ruf7Links": {
+      "bBoxNE": [
+        2.112,
+        3.116
+      ],
+      "bBoxSW": [
+        0.048,
+        1.804
+      ]
+    },
+    "pictBeaterSoftTimpaniUp": {
+      "bBoxNE": [
+        2.112,
+        3.116
+      ],
+      "bBoxSW": [
+        0.048,
+        1.804
+      ]
+    },
+    "ruf7Rechts": {
+      "bBoxNE": [
+        2.084,
+        1.324
+      ],
+      "bBoxSW": [
+        0.02,
+        0.012
+      ]
+    },
+    "pictBeaterSoftTimpaniDown": {
+      "bBoxNE": [
+        2.084,
+        1.324
+      ],
+      "bBoxSW": [
+        0.02,
+        0.012
+      ]
+    },
+    "ruf9Links": {
+      "bBoxNE": [
+        3.828,
+        3.124
+      ],
+      "bBoxSW": [
+        0.052,
+        1.812
+      ]
+    },
+    "pictBeaterSoftTimpaniRight": {
+      "bBoxNE": [
+        3.828,
+        3.124
+      ],
+      "bBoxSW": [
+        0.052,
+        1.812
+      ]
+    },
+    "ruf9Rechts": {
+      "bBoxNE": [
+        3.804,
+        1.332
+      ],
+      "bBoxSW": [
+        0.028,
+        0.02
+      ]
+    },
+    "pictBeaterSoftTimpaniLeft": {
+      "bBoxNE": [
+        3.804,
+        1.332
+      ],
+      "bBoxSW": [
+        0.028,
+        0.02
+      ]
+    },
+    "ruf11Links": {
+      "bBoxNE": [
+        5.472,
+        3.132
+      ],
+      "bBoxSW": [
+        0.048,
+        1.484
+      ]
+    },
+    "pictBeaterMediumTimpaniUp": {
+      "bBoxNE": [
+        5.472,
+        3.132
+      ],
+      "bBoxSW": [
+        0.048,
+        1.484
+      ]
+    },
+    "ruf11Rechts": {
+      "bBoxNE": [
+        5.448,
+        1.676
+      ],
+      "bBoxSW": [
+        0.024,
+        0.028
+      ]
+    },
+    "pictBeaterMediumTimpaniDown": {
+      "bBoxNE": [
+        5.448,
+        1.676
+      ],
+      "bBoxSW": [
+        0.024,
+        0.028
+      ]
+    },
+    "ruf13Links": {
+      "bBoxNE": [
+        5.488,
+        3.128
+      ],
+      "bBoxSW": [
+        0.032,
+        1.592
+      ]
+    },
+    "pictBeaterMediumTimpaniRight": {
+      "bBoxNE": [
+        5.488,
+        3.128
+      ],
+      "bBoxSW": [
+        0.032,
+        1.592
+      ]
+    },
+    "ruf13Rechts": {
+      "bBoxNE": [
+        5.488,
+        1.564
+      ],
+      "bBoxSW": [
+        0.032,
+        0.028
+      ]
+    },
+    "pictBeaterMediumTimpaniLeft": {
+      "bBoxNE": [
+        5.488,
+        1.564
+      ],
+      "bBoxSW": [
+        0.032,
+        0.028
+      ]
+    },
+    "ruf15Links": {
+      "bBoxNE": [
+        11.256,
+        3.028
+      ],
+      "bBoxSW": [
+        0.04,
+        1.46
+      ]
+    },
+    "pictBeaterHardTimpaniUp": {
+      "bBoxNE": [
+        11.256,
+        3.028
+      ],
+      "bBoxSW": [
+        0.04,
+        1.46
+      ]
+    },
+    "ruf15Rechts": {
+      "bBoxNE": [
+        11.244,
+        1.628
+      ],
+      "bBoxSW": [
+        0.028,
+        0.06
+      ]
+    },
+    "pictBeaterHardTimpaniDown": {
+      "bBoxNE": [
+        11.244,
+        1.628
+      ],
+      "bBoxSW": [
+        0.028,
+        0.06
+      ]
+    },
+    "ruf17Links": {
+      "bBoxNE": [
+        11.272,
+        3.12
+      ],
+      "bBoxSW": [
+        0.056,
+        1.584
+      ]
+    },
+    "pictBeaterHardTimpaniRight": {
+      "bBoxNE": [
+        11.272,
+        3.12
+      ],
+      "bBoxSW": [
+        0.056,
+        1.584
+      ]
+    },
+    "ruf17Rechts": {
+      "bBoxNE": [
+        11.264,
+        1.596
+      ],
+      "bBoxSW": [
+        0.048,
+        0.06
+      ]
+    },
+    "pictBeaterHardTimpaniLeft": {
+      "bBoxNE": [
+        11.264,
+        1.596
+      ],
+      "bBoxSW": [
+        0.048,
+        0.06
+      ]
+    },
+    "ruf19Links": {
+      "bBoxNE": [
+        11.248,
+        1.64
+      ],
+      "bBoxSW": [
+        0.032,
+        0.072
+      ]
+    },
+    "pictBeaterWoodTimpaniUp": {
+      "bBoxNE": [
+        11.248,
+        1.64
+      ],
+      "bBoxSW": [
+        0.032,
+        0.072
+      ]
+    },
+    "ruf19Rechts": {
+      "bBoxNE": [
+        11.24,
+        3.104
+      ],
+      "bBoxSW": [
+        0.024,
+        1.536
+      ]
+    },
+    "pictBeaterWoodTimpaniDown": {
+      "bBoxNE": [
+        11.24,
+        3.104
+      ],
+      "bBoxSW": [
+        0.024,
+        1.536
+      ]
+    },
+    "ruf21Rechts": {
+      "bBoxNE": [
+        16.796,
+        1.588
+      ],
+      "bBoxSW": [
+        0.076,
+        0.052
+      ]
+    },
+    "pictBeaterWoodTimpaniRight": {
+      "bBoxNE": [
+        16.796,
+        1.588
+      ],
+      "bBoxSW": [
+        0.076,
+        0.052
+      ]
+    },
+    "ruf21Links": {
+      "bBoxNE": [
+        16.764,
+        3.072
+      ],
+      "bBoxSW": [
+        0.044,
+        1.536
+      ]
+    },
+    "pictBeaterWoodTimpaniLeft": {
+      "bBoxNE": [
+        16.764,
+        3.072
+      ],
+      "bBoxSW": [
+        0.044,
+        1.536
+      ]
+    },
+    "schlepp3erliLinks": {
+      "bBoxNE": [
+        1.452,
+        3.116
+      ],
+      "bBoxSW": [
+        0.044,
+        1.804
+      ]
+    },
+    "pictBeaterSoftBassDrumUp": {
+      "bBoxNE": [
+        1.452,
+        3.116
+      ],
+      "bBoxSW": [
+        0.044,
+        1.804
+      ]
+    },
+    "schlepp3erliRechts": {
+      "bBoxNE": [
+        1.424,
+        1.336
+      ],
+      "bBoxSW": [
+        0.016,
+        0.024
+      ]
+    },
+    "pictBeaterSoftBassDrumDown": {
+      "bBoxNE": [
+        1.424,
+        1.336
+      ],
+      "bBoxSW": [
+        0.016,
+        0.024
+      ]
+    },
+    "schlepp5er": {
+      "bBoxNE": [
+        3.544,
+        3.632
+      ],
+      "bBoxSW": [
+        0.04,
+        0.032
+      ]
+    },
+    "pictBeaterMediumBassDrumUp": {
+      "bBoxNE": [
+        3.544,
+        3.632
+      ],
+      "bBoxSW": [
+        0.04,
+        0.032
+      ]
+    },
+    "schlepp9er": {
+      "bBoxNE": [
+        6.472,
+        3.368
+      ],
+      "bBoxSW": [
+        0.056,
+        0.04
+      ]
+    },
+    "pictBeaterMediumBassDrumDown": {
+      "bBoxNE": [
+        6.472,
+        3.368
+      ],
+      "bBoxSW": [
+        0.056,
+        0.04
+      ]
+    },
+    "schleppLinks": {
+      "bBoxNE": [
+        0.736,
+        3.108
+      ],
+      "bBoxSW": [
+        0.016,
+        2.404
+      ]
+    },
+    "pictBeaterHardBassDrumUp": {
+      "bBoxNE": [
+        0.736,
+        3.108
+      ],
+      "bBoxSW": [
+        0.016,
+        2.404
+      ]
+    },
+    "schleppRechts": {
+      "bBoxNE": [
+        0.732,
+        0.784
+      ],
+      "bBoxSW": [
+        0.012,
+        0.08
+      ]
+    },
+    "pictBeaterHardBassDrumDown": {
+      "bBoxNE": [
+        0.732,
+        0.784
+      ],
+      "bBoxSW": [
+        0.012,
+        0.08
+      ]
+    },
+    "straich3Links": {
+      "bBoxNE": [
+        2.404,
+        3.08
+      ],
+      "bBoxSW": [
+        0.036,
+        -0.04
+      ]
+    },
+    "pictBeaterMetalBassDrumUp": {
+      "bBoxNE": [
+        2.404,
+        3.08
+      ],
+      "bBoxSW": [
+        0.036,
+        -0.04
+      ]
+    },
+    "straich3Rechts": {
+      "bBoxNE": [
+        2.388,
+        3.132
+      ],
+      "bBoxSW": [
+        0.02,
+        0.012
+      ]
+    },
+    "pictBeaterMetalBassDrumDown": {
+      "bBoxNE": [
+        2.388,
+        3.132
+      ],
+      "bBoxSW": [
+        0.02,
+        0.012
+      ]
+    },
+    "udoppelDWLinks": {
+      "bBoxNE": [
+        3.488,
+        3.116
+      ],
+      "bBoxSW": [
+        0.064,
+        1.804
+      ]
+    },
+    "pictBeaterDoubleBassDrumUp": {
+      "bBoxNE": [
+        3.488,
+        3.116
+      ],
+      "bBoxSW": [
+        0.064,
+        1.804
+      ]
+    },
+    "uDoppelDWRechts": {
+      "bBoxNE": [
+        3.448,
+        1.328
+      ],
+      "bBoxSW": [
+        0.024,
+        0.016
+      ]
+    },
+    "pictBeaterDoubleBassDrumDown": {
+      "bBoxNE": [
+        3.448,
+        1.328
+      ],
+      "bBoxSW": [
+        0.024,
+        0.016
+      ]
+    },
+    "uEndstraichLinks": {
+      "bBoxNE": [
+        3.06,
+        3.144
+      ],
+      "bBoxSW": [
+        0.02,
+        0.024
+      ]
+    },
+    "pictBeaterSoftYarnUp": {
+      "bBoxNE": [
+        3.06,
+        3.144
+      ],
+      "bBoxSW": [
+        0.02,
+        0.024
+      ]
+    },
+    "uEndstraichRechts": {
+      "bBoxNE": [
+        3.072,
+        3.148
+      ],
+      "bBoxSW": [
+        0.032,
+        0.028
+      ]
+    },
+    "pictBeaterSoftYarnDown": {
+      "bBoxNE": [
+        3.072,
+        3.148
+      ],
+      "bBoxSW": [
+        0.032,
+        0.028
+      ]
+    },
+    "ruf5PunktiertLinks": {
+      "bBoxNE": [
+        2.268,
+        3.116
+      ],
+      "bBoxSW": [
+        0.068,
+        1.788
+      ]
+    },
+    "pictBeaterSoftYarnRight": {
+      "bBoxNE": [
+        2.268,
+        3.116
+      ],
+      "bBoxSW": [
+        0.068,
+        1.788
+      ]
+    },
+    "ruf5PunktiertRechts": {
+      "bBoxNE": [
+        2.212,
+        1.392
+      ],
+      "bBoxSW": [
+        0.012,
+        0.064
+      ]
+    },
+    "pictBeaterSoftYarnLeft": {
+      "bBoxNE": [
+        2.212,
+        1.392
+      ],
+      "bBoxSW": [
+        0.012,
+        0.064
+      ]
+    },
+    "wert8el": {
+      "bBoxNE": [
+        0.356,
+        4.696
+      ],
+      "bBoxSW": [
+        0.308,
+        0.44
+      ]
+    },
+    "pictBeaterMediumYarnUp": {
+      "bBoxNE": [
+        0.356,
+        4.696
+      ],
+      "bBoxSW": [
+        0.308,
+        0.44
+      ]
+    },
+    "wert8el2": {
+      "bBoxNE": [
+        0.356,
+        4.696
+      ],
+      "bBoxSW": [
+        0.308,
+        0.44
+      ]
+    },
+    "pictBeaterMediumYarnDown": {
+      "bBoxNE": [
+        0.356,
+        4.696
+      ],
+      "bBoxSW": [
+        0.308,
+        0.44
+      ]
+    },
+    "wert16tel": {
+      "bBoxNE": [
+        0.448,
+        3.884
+      ],
+      "bBoxSW": [
+        0.4,
+        -0.372
+      ]
+    },
+    "pictBeaterMediumYarnRight": {
+      "bBoxNE": [
+        0.448,
+        3.884
+      ],
+      "bBoxSW": [
+        0.4,
+        -0.372
+      ]
+    },
+    "wert16tel2": {
+      "bBoxNE": [
+        0.448,
+        3.884
+      ],
+      "bBoxSW": [
+        0.4,
+        -0.372
+      ]
+    },
+    "pictBeaterMediumYarnLeft": {
+      "bBoxNE": [
+        0.448,
+        3.884
+      ],
+      "bBoxSW": [
+        0.4,
+        -0.372
+      ]
+    },
+    "wertQuintole": {
+      "bBoxNE": [
+        0.432,
+        4.724
+      ],
+      "bBoxSW": [
+        0.384,
+        0.436
+      ]
+    },
+    "pictBeaterHardYarnUp": {
+      "bBoxNE": [
+        0.432,
+        4.724
+      ],
+      "bBoxSW": [
+        0.384,
+        0.436
+      ]
+    },
+    "wertQuintole2": {
+      "bBoxNE": [
+        0.432,
+        4.724
+      ],
+      "bBoxSW": [
+        0.384,
+        0.436
+      ]
+    },
+    "pictBeaterHardYarnDown": {
+      "bBoxNE": [
+        0.432,
+        4.724
+      ],
+      "bBoxSW": [
+        0.384,
+        0.436
+      ]
+    }
+  },
+  "glyphsWithAnchors": {},
+  "glyphsWithAlternates": {},
+  "ligatures": {},
+  "sets": {},
+  "optionalGlyphs": {
+    "bataflafla": {
+      "codepoint": "U+F400",
+      "description": "Bataflafla",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "bataflaLinks": {
+      "codepoint": "U+F401",
+      "description": "Batafla links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "bataflaRechts": {
+      "codepoint": "U+F402",
+      "description": "Batafla rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "coupeDeCharge": {
+      "codepoint": "U+F403",
+      "description": "Coupe de charge",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "doppelDWLinks": {
+      "codepoint": "U+F404",
+      "description": "Doppel-Doppelschlag links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "doppelDWRechts": {
+      "codepoint": "U+F405",
+      "description": "Doppel-Doppelschlag rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "double2": {
+      "codepoint": "U+F406",
+      "description": "Double (Variante 2)",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "doubleLinks": {
+      "codepoint": "U+F407",
+      "description": "Double links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "doubleRechts": {
+      "codepoint": "U+F408",
+      "description": "Double rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "dupfLinks": {
+      "codepoint": "U+F409",
+      "description": "Dupf links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "dupfRechts": {
+      "codepoint": "U+F40A",
+      "description": "Dupf rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "endstraichLinks": {
+      "codepoint": "U+F40B",
+      "description": "Endstraich links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "endstraichRechts": {
+      "codepoint": "U+F40C",
+      "description": "Endstraich rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "maermeliLinks": {
+      "codepoint": "U+F40D",
+      "description": "Maermeli links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "maermeliRechts": {
+      "codepoint": "U+F40E",
+      "description": "Maermeli rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "muehlerad": {
+      "codepoint": "U+F40F",
+      "description": "Muehlerad",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "paradiddleLinks": {
+      "codepoint": "U+F410",
+      "description": "Paradiddle links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "paradiddleRechts": {
+      "codepoint": "U+F411",
+      "description": "Paradiddle rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf3Links": {
+      "codepoint": "U+F412",
+      "description": "Ruf 3 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf3Rechts": {
+      "codepoint": "U+F413",
+      "description": "Ruf 3 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf4Links": {
+      "codepoint": "U+F414",
+      "description": "Ruf 4 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf4Rechts": {
+      "codepoint": "U+F415",
+      "description": "Ruf 4 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf5Links": {
+      "codepoint": "U+F416",
+      "description": "Ruf 5 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf5Rechts": {
+      "codepoint": "U+F417",
+      "description": "Ruf 5 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf7Links": {
+      "codepoint": "U+F418",
+      "description": "Ruf 7 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf7Rechts": {
+      "codepoint": "U+F419",
+      "description": "Ruf 7 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf9Links": {
+      "codepoint": "U+F41A",
+      "description": "Ruf 9 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf9Rechts": {
+      "codepoint": "U+F41B",
+      "description": "Ruf 9 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf11Links": {
+      "codepoint": "U+F41C",
+      "description": "Ruf 11 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf11Rechts": {
+      "codepoint": "U+F41D",
+      "description": "Ruf 11 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf13Links": {
+      "codepoint": "U+F41E",
+      "description": "Ruf 13 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf13Rechts": {
+      "codepoint": "U+F41F",
+      "description": "Ruf 13 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf15Links": {
+      "codepoint": "U+F420",
+      "description": "Ruf 15 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf15Rechts": {
+      "codepoint": "U+F421",
+      "description": "Ruf 15 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf17Links": {
+      "codepoint": "U+F422",
+      "description": "Ruf 17 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf17Rechts": {
+      "codepoint": "U+F423",
+      "description": "Ruf 17 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf19Links": {
+      "codepoint": "U+F424",
+      "description": "Ruf 19 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf19Rechts": {
+      "codepoint": "U+F425",
+      "description": "Ruf 19 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf21Rechts": {
+      "codepoint": "U+F426",
+      "description": "Ruf 21 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf21Links": {
+      "codepoint": "U+F427",
+      "description": "Ruf 21 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "schlepp3erliLinks": {
+      "codepoint": "U+F428",
+      "description": "Schlepp-3erli links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "schlepp3erliRechts": {
+      "codepoint": "U+F429",
+      "description": "Schlepp-3erli rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "schlepp5er": {
+      "codepoint": "U+F42A",
+      "description": "Schlepp-5er",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "schlepp9er": {
+      "codepoint": "U+F42B",
+      "description": "Schlepp-9er",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "schleppLinks": {
+      "codepoint": "U+F42C",
+      "description": "Schlepp links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "schleppRechts": {
+      "codepoint": "U+F42D",
+      "description": "Schlepp rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "straich3Links": {
+      "codepoint": "U+F42E",
+      "description": "Straich-3 links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "straich3Rechts": {
+      "codepoint": "U+F42F",
+      "description": "Straich-3 rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "udoppelDWLinks": {
+      "codepoint": "U+F430",
+      "description": "U-Doppel-Doppelschlag links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "uDoppelDWRechts": {
+      "codepoint": "U+F431",
+      "description": "U-Doppel-Doppelschlag rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "uEndstraichLinks": {
+      "codepoint": "U+F432",
+      "description": "U-Endstraich links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "uEndstraichRechts": {
+      "codepoint": "U+F433",
+      "description": "U-Endstraich rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf5PunktiertLinks": {
+      "codepoint": "U+F434",
+      "description": "Ruf 5 punktiert links",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "ruf5PunktiertRechts": {
+      "codepoint": "U+F435",
+      "description": "Ruf 5 punktiert rechts",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "wert8el": {
+      "codepoint": "U+F436",
+      "description": "Notenwert Achtel",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "wert8el2": {
+      "codepoint": "U+F437",
+      "description": "Notenwert Achtel (Variante 2)",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "wert16tel": {
+      "codepoint": "U+F438",
+      "description": "Notenwert Sechzehntel",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "wert16tel2": {
+      "codepoint": "U+F439",
+      "description": "Notenwert Sechzehntel (Variante 2)",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "wertQuintole": {
+      "codepoint": "U+F43A",
+      "description": "Notenwert Quintole",
+      "classes": [
+        "wettstai"
+      ]
+    },
+    "wertQuintole2": {
+      "codepoint": "U+F43B",
+      "description": "Notenwert Quintole (Variante 2)",
+      "classes": [
+        "wettstai"
+      ]
+    }
+  }
+}
