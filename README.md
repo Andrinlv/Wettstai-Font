@@ -31,7 +31,7 @@ Studio v4.6.5 im Quelltext tatsächlich anwendet.*
 
 ## Kurzfassung: was war kaputt
 
-Acht Fehler, davon drei so schwer, dass das Paket nicht funktionieren konnte:
+Neun Fehler, davon drei so schwer, dass das Paket nicht funktionieren konnte:
 
 | | Befund | Folge | Status |
 |---|---|---|---|
@@ -43,6 +43,7 @@ Acht Fehler, davon drei so schwer, dass das Paket nicht funktionieren konnte:
 | 6 | Die Metadaten waren kein gültiges SMuFL (falsches Bounding-Box-Format, Font-Einheiten statt Notenzeilenabstände, vertauschte x/y-Werte, erfundene Schlüssel). | Andere Programme konnten nichts damit anfangen. | behoben |
 | 7 | Die Vorschubbreiten lagen zwischen 45 und 833 Einheiten, obwohl Zeichnungen bis 4199 Einheiten breit sind. | Symbole überlappten. | behoben |
 | 8 | Vertikale Metriken unpassend (`hhea.ascent` 2181 bei 1000 Einheiten pro Geviert, `sTypoDescender` 0 bei Zeichen bis −297). | Abgeschnittene Zeichen, falsche Zeilenhöhe. | behoben |
+| 9 | Wer der alten Anleitung folgte und die OTF per Doppelklick systemweit installierte, hat eine Kopie in `C:\Windows\Fonts`. MuseScore findet die **zuerst**. | Die Reparatur wäre unsichtbar geblieben – MuseScore hätte weiter die alte Schrift geladen. | behoben |
 
 Die **Zeichnungen selbst sind unverändert** – der Build prüft das bei jedem Lauf, indem
 er die Umrisse aller 60 Glyphen mit dem Original vergleicht.
@@ -233,6 +234,32 @@ SMuFL-Programm war die Datei unbrauchbar.
 **Behoben:** Die Metadaten werden von `tools/build_metadata.py` aus der fertigen
 Schriftdatei erzeugt und können damit nicht mehr auseinanderlaufen. `verify_musescore.py`
 rechnet jeden Wert gegen die Schrift nach.
+
+### 9. Eine alte systemweite Installation verdeckt die neue
+
+Gefunden erst beim Audit, aber praktisch der gefährlichste Punkt: Die alte
+Anleitung empfahl, `WettstaiFont.otf` per Doppelklick zu installieren. Mit
+„Für alle Benutzer installieren" landet die Datei in `C:\Windows\Fonts`.
+
+```cpp
+// src/notation/internal/engravingfontscontroller.cpp (v4.6.5)
+QStringList fontLocations = QStandardPaths::standardLocations(QStandardPaths::FontsLocation);
+#if defined(Q_OS_WIN)
+    // Qt does not include the local fonts folder in the standard locations
+    fontLocations << qgetenv("LocalAppData").replace("\\", "/") + "/Microsoft/Windows/Fonts";
+#endif
+for (const QString& dir : fontLocations) { /* ... erster Treffer gewinnt ... */ }
+```
+
+`C:\Windows\Fonts` steht **vor** dem Benutzer-Ordner, und der erste Treffer
+gewinnt. Eine alte Kopie dort hätte alles überstimmt, was der Installer in den
+Benutzer-Ordner schreibt – das Ergebnis wäre gewesen: „ich habe alles neu
+installiert und es sieht genauso aus wie vorher".
+
+**Behoben:** Der Installer sucht diese Kopie jetzt, entfernt sie mitsamt
+`HKLM`-Eintrag, wenn er als Administrator läuft, und meldet sonst am Ende
+ausdrücklich **keinen** Erfolg, sondern den genauen Entfernungsweg. Der
+Deinstaller weist ebenfalls darauf hin.
 
 ### 7. und 8. Vorschubbreiten und vertikale Metriken
 

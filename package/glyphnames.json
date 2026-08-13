@@ -1,302 +1,302 @@
 {
   "bataflafla": {
     "codepoint": "U+F400",
-    "alternateCodepoint": "U+E770",
+    "museScoreCodepoint": "U+E770",
     "description": "Bataflafla"
   },
   "bataflaLinks": {
     "codepoint": "U+F401",
-    "alternateCodepoint": "U+E771",
+    "museScoreCodepoint": "U+E771",
     "description": "Batafla links"
   },
   "bataflaRechts": {
     "codepoint": "U+F402",
-    "alternateCodepoint": "U+E772",
+    "museScoreCodepoint": "U+E772",
     "description": "Batafla rechts"
   },
   "coupeDeCharge": {
     "codepoint": "U+F403",
-    "alternateCodepoint": "U+E773",
+    "museScoreCodepoint": "U+E773",
     "description": "Coupe de charge"
   },
   "doppelDWLinks": {
     "codepoint": "U+F404",
-    "alternateCodepoint": "U+E774",
+    "museScoreCodepoint": "U+E774",
     "description": "Doppel-Doppelschlag links"
   },
   "doppelDWRechts": {
     "codepoint": "U+F405",
-    "alternateCodepoint": "U+E775",
+    "museScoreCodepoint": "U+E775",
     "description": "Doppel-Doppelschlag rechts"
   },
   "double2": {
     "codepoint": "U+F406",
-    "alternateCodepoint": "U+E776",
+    "museScoreCodepoint": "U+E776",
     "description": "Double (Variante 2)"
   },
   "doubleLinks": {
     "codepoint": "U+F407",
-    "alternateCodepoint": "U+E777",
+    "museScoreCodepoint": "U+E777",
     "description": "Double links"
   },
   "doubleRechts": {
     "codepoint": "U+F408",
-    "alternateCodepoint": "U+E778",
+    "museScoreCodepoint": "U+E778",
     "description": "Double rechts"
   },
   "dupfLinks": {
     "codepoint": "U+F409",
-    "alternateCodepoint": "U+E779",
+    "museScoreCodepoint": "U+E779",
     "description": "Dupf links"
   },
   "dupfRechts": {
     "codepoint": "U+F40A",
-    "alternateCodepoint": "U+E77A",
+    "museScoreCodepoint": "U+E77A",
     "description": "Dupf rechts"
   },
   "endstraichLinks": {
     "codepoint": "U+F40B",
-    "alternateCodepoint": "U+E77B",
+    "museScoreCodepoint": "U+E77B",
     "description": "Endstraich links"
   },
   "endstraichRechts": {
     "codepoint": "U+F40C",
-    "alternateCodepoint": "U+E77C",
+    "museScoreCodepoint": "U+E77C",
     "description": "Endstraich rechts"
   },
   "maermeliLinks": {
     "codepoint": "U+F40D",
-    "alternateCodepoint": "U+E77D",
+    "museScoreCodepoint": "U+E77D",
     "description": "Maermeli links"
   },
   "maermeliRechts": {
     "codepoint": "U+F40E",
-    "alternateCodepoint": "U+E77E",
+    "museScoreCodepoint": "U+E77E",
     "description": "Maermeli rechts"
   },
   "muehlerad": {
     "codepoint": "U+F40F",
-    "alternateCodepoint": "U+E77F",
+    "museScoreCodepoint": "U+E77F",
     "description": "Muehlerad"
   },
   "paradiddleLinks": {
     "codepoint": "U+F410",
-    "alternateCodepoint": "U+E780",
+    "museScoreCodepoint": "U+E780",
     "description": "Paradiddle links"
   },
   "paradiddleRechts": {
     "codepoint": "U+F411",
-    "alternateCodepoint": "U+E781",
+    "museScoreCodepoint": "U+E781",
     "description": "Paradiddle rechts"
   },
   "ruf3Links": {
     "codepoint": "U+F412",
-    "alternateCodepoint": "U+E782",
+    "museScoreCodepoint": "U+E782",
     "description": "Ruf 3 links"
   },
   "ruf3Rechts": {
     "codepoint": "U+F413",
-    "alternateCodepoint": "U+E783",
+    "museScoreCodepoint": "U+E783",
     "description": "Ruf 3 rechts"
   },
   "ruf4Links": {
     "codepoint": "U+F414",
-    "alternateCodepoint": "U+E784",
+    "museScoreCodepoint": "U+E784",
     "description": "Ruf 4 links"
   },
   "ruf4Rechts": {
     "codepoint": "U+F415",
-    "alternateCodepoint": "U+E785",
+    "museScoreCodepoint": "U+E785",
     "description": "Ruf 4 rechts"
   },
   "ruf5Links": {
     "codepoint": "U+F416",
-    "alternateCodepoint": "U+E786",
+    "museScoreCodepoint": "U+E786",
     "description": "Ruf 5 links"
   },
   "ruf5Rechts": {
     "codepoint": "U+F417",
-    "alternateCodepoint": "U+E787",
+    "museScoreCodepoint": "U+E787",
     "description": "Ruf 5 rechts"
   },
   "ruf7Links": {
     "codepoint": "U+F418",
-    "alternateCodepoint": "U+E788",
+    "museScoreCodepoint": "U+E788",
     "description": "Ruf 7 links"
   },
   "ruf7Rechts": {
     "codepoint": "U+F419",
-    "alternateCodepoint": "U+E789",
+    "museScoreCodepoint": "U+E789",
     "description": "Ruf 7 rechts"
   },
   "ruf9Links": {
     "codepoint": "U+F41A",
-    "alternateCodepoint": "U+E78A",
+    "museScoreCodepoint": "U+E78A",
     "description": "Ruf 9 links"
   },
   "ruf9Rechts": {
     "codepoint": "U+F41B",
-    "alternateCodepoint": "U+E78B",
+    "museScoreCodepoint": "U+E78B",
     "description": "Ruf 9 rechts"
   },
   "ruf11Links": {
     "codepoint": "U+F41C",
-    "alternateCodepoint": "U+E78C",
+    "museScoreCodepoint": "U+E78C",
     "description": "Ruf 11 links"
   },
   "ruf11Rechts": {
     "codepoint": "U+F41D",
-    "alternateCodepoint": "U+E78D",
+    "museScoreCodepoint": "U+E78D",
     "description": "Ruf 11 rechts"
   },
   "ruf13Links": {
     "codepoint": "U+F41E",
-    "alternateCodepoint": "U+E78E",
+    "museScoreCodepoint": "U+E78E",
     "description": "Ruf 13 links"
   },
   "ruf13Rechts": {
     "codepoint": "U+F41F",
-    "alternateCodepoint": "U+E78F",
+    "museScoreCodepoint": "U+E78F",
     "description": "Ruf 13 rechts"
   },
   "ruf15Links": {
     "codepoint": "U+F420",
-    "alternateCodepoint": "U+E790",
+    "museScoreCodepoint": "U+E790",
     "description": "Ruf 15 links"
   },
   "ruf15Rechts": {
     "codepoint": "U+F421",
-    "alternateCodepoint": "U+E791",
+    "museScoreCodepoint": "U+E791",
     "description": "Ruf 15 rechts"
   },
   "ruf17Links": {
     "codepoint": "U+F422",
-    "alternateCodepoint": "U+E792",
+    "museScoreCodepoint": "U+E792",
     "description": "Ruf 17 links"
   },
   "ruf17Rechts": {
     "codepoint": "U+F423",
-    "alternateCodepoint": "U+E793",
+    "museScoreCodepoint": "U+E793",
     "description": "Ruf 17 rechts"
   },
   "ruf19Links": {
     "codepoint": "U+F424",
-    "alternateCodepoint": "U+E794",
+    "museScoreCodepoint": "U+E794",
     "description": "Ruf 19 links"
   },
   "ruf19Rechts": {
     "codepoint": "U+F425",
-    "alternateCodepoint": "U+E795",
+    "museScoreCodepoint": "U+E795",
     "description": "Ruf 19 rechts"
   },
   "ruf21Rechts": {
     "codepoint": "U+F426",
-    "alternateCodepoint": "U+E796",
+    "museScoreCodepoint": "U+E796",
     "description": "Ruf 21 rechts"
   },
   "ruf21Links": {
     "codepoint": "U+F427",
-    "alternateCodepoint": "U+E797",
+    "museScoreCodepoint": "U+E797",
     "description": "Ruf 21 links"
   },
   "schlepp3erliLinks": {
     "codepoint": "U+F428",
-    "alternateCodepoint": "U+E798",
+    "museScoreCodepoint": "U+E798",
     "description": "Schlepp-3erli links"
   },
   "schlepp3erliRechts": {
     "codepoint": "U+F429",
-    "alternateCodepoint": "U+E799",
+    "museScoreCodepoint": "U+E799",
     "description": "Schlepp-3erli rechts"
   },
   "schlepp5er": {
     "codepoint": "U+F42A",
-    "alternateCodepoint": "U+E79A",
+    "museScoreCodepoint": "U+E79A",
     "description": "Schlepp-5er"
   },
   "schlepp9er": {
     "codepoint": "U+F42B",
-    "alternateCodepoint": "U+E79B",
+    "museScoreCodepoint": "U+E79B",
     "description": "Schlepp-9er"
   },
   "schleppLinks": {
     "codepoint": "U+F42C",
-    "alternateCodepoint": "U+E79C",
+    "museScoreCodepoint": "U+E79C",
     "description": "Schlepp links"
   },
   "schleppRechts": {
     "codepoint": "U+F42D",
-    "alternateCodepoint": "U+E79D",
+    "museScoreCodepoint": "U+E79D",
     "description": "Schlepp rechts"
   },
   "straich3Links": {
     "codepoint": "U+F42E",
-    "alternateCodepoint": "U+E79E",
+    "museScoreCodepoint": "U+E79E",
     "description": "Straich-3 links"
   },
   "straich3Rechts": {
     "codepoint": "U+F42F",
-    "alternateCodepoint": "U+E79F",
+    "museScoreCodepoint": "U+E79F",
     "description": "Straich-3 rechts"
   },
   "udoppelDWLinks": {
     "codepoint": "U+F430",
-    "alternateCodepoint": "U+E7A0",
+    "museScoreCodepoint": "U+E7A0",
     "description": "U-Doppel-Doppelschlag links"
   },
   "uDoppelDWRechts": {
     "codepoint": "U+F431",
-    "alternateCodepoint": "U+E7A1",
+    "museScoreCodepoint": "U+E7A1",
     "description": "U-Doppel-Doppelschlag rechts"
   },
   "uEndstraichLinks": {
     "codepoint": "U+F432",
-    "alternateCodepoint": "U+E7A2",
+    "museScoreCodepoint": "U+E7A2",
     "description": "U-Endstraich links"
   },
   "uEndstraichRechts": {
     "codepoint": "U+F433",
-    "alternateCodepoint": "U+E7A3",
+    "museScoreCodepoint": "U+E7A3",
     "description": "U-Endstraich rechts"
   },
   "ruf5PunktiertLinks": {
     "codepoint": "U+F434",
-    "alternateCodepoint": "U+E7A4",
+    "museScoreCodepoint": "U+E7A4",
     "description": "Ruf 5 punktiert links"
   },
   "ruf5PunktiertRechts": {
     "codepoint": "U+F435",
-    "alternateCodepoint": "U+E7A5",
+    "museScoreCodepoint": "U+E7A5",
     "description": "Ruf 5 punktiert rechts"
   },
   "wert8el": {
     "codepoint": "U+F436",
-    "alternateCodepoint": "U+E7A6",
+    "museScoreCodepoint": "U+E7A6",
     "description": "Notenwert Achtel"
   },
   "wert8el2": {
     "codepoint": "U+F437",
-    "alternateCodepoint": "U+E7A7",
+    "museScoreCodepoint": "U+E7A7",
     "description": "Notenwert Achtel (Variante 2)"
   },
   "wert16tel": {
     "codepoint": "U+F438",
-    "alternateCodepoint": "U+E7A8",
+    "museScoreCodepoint": "U+E7A8",
     "description": "Notenwert Sechzehntel"
   },
   "wert16tel2": {
     "codepoint": "U+F439",
-    "alternateCodepoint": "U+E7A9",
+    "museScoreCodepoint": "U+E7A9",
     "description": "Notenwert Sechzehntel (Variante 2)"
   },
   "wertQuintole": {
     "codepoint": "U+F43A",
-    "alternateCodepoint": "U+E7AA",
+    "museScoreCodepoint": "U+E7AA",
     "description": "Notenwert Quintole"
   },
   "wertQuintole2": {
     "codepoint": "U+F43B",
-    "alternateCodepoint": "U+E7AB",
+    "museScoreCodepoint": "U+E7AB",
     "description": "Notenwert Quintole (Variante 2)"
   }
 }

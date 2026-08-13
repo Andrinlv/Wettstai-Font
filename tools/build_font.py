@@ -75,7 +75,10 @@ def build(src: Path, out: Path) -> None:
     before = {name: outline_signature(original, name) for name in keep}
     original.close()
 
-    font = TTFont(str(src))
+    # recalcTimestamp=False keeps head.modified at the original's value. With
+    # fontTools' default the field (and the checksum derived from it) changes on
+    # every run, so the build would never be byte-reproducible.
+    font = TTFont(str(src), recalcTimestamp=False)
 
     dropped = PLACEHOLDER_GLYPHS + FLAG_OVERRIDE_GLYPHS
     present = set(font.getGlyphOrder())

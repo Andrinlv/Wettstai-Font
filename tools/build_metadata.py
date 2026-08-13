@@ -135,10 +135,14 @@ def build(font_path: Path) -> None:
         },
     }
 
+    # Note the key name: SMuFL reserves "alternateCodepoint" for a glyph's
+    # equivalent in the Unicode Musical Symbols block (U+1D1xx). The MuseScore
+    # alias is not that, so it gets a key of its own that no consumer can
+    # mistake for a spec field.
     glyphnames = {
         name: {
             "codepoint": f"U+{cp:04X}",
-            "alternateCodepoint": f"U+{alias_codepoint(index):04X}",
+            "museScoreCodepoint": f"U+{alias_codepoint(index):04X}",
             "description": desc,
         }
         for index, (cp, name, desc) in enumerate(WETTSTAI_GLYPHS)

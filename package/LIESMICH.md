@@ -66,12 +66,21 @@ Damit du nicht jedes Mal durch die Master-Palette navigieren musst:
 | Neustart | MuseScore wirklich komplett beendet und neu gestartet? |
 | Metadaten | Gibt es `%LOCALAPPDATA%\SMuFL\Fonts\WettstaiFont\WettstaiFont.json`? |
 | Schriftdatei | Gibt es `%LOCALAPPDATA%\Microsoft\Windows\Fonts\WettstaiFont.otf`? |
+| Alte Kopie | Liegt noch ein `C:\Windows\Fonts\WettstaiFont.otf` von früher herum? |
 
 Beide Dateien müssen **exakt** so heißen – MuseScore sucht die Schriftdatei unter
 dem Namen des Ordners, in dem die Metadaten liegen.
 
+**Sieht alles aus wie vorher, obwohl die Installation lief?** Dann liegt fast sicher
+noch eine alte, systemweit installierte Kopie unter `C:\Windows\Fonts\WettstaiFont.otf`.
+MuseScore durchsucht diesen Ordner **vor** dem Benutzer-Ordner und nimmt den ersten
+Treffer – die alte Schrift gewinnt. Entfernen über *Einstellungen → Personalisierung →
+Schriftarten → „WettstaiFont" → Deinstallieren*, oder das Installationsskript einmal als
+Administrator laufen lassen; dann räumt es selbst auf.
+
 Werden Symbole als leere Rechtecke gezeigt, ist die OTF nicht als Windows-Schriftart
-installiert: Doppelklick auf `WettstaiFont.otf` → *Installieren*.
+installiert: Doppelklick auf `WettstaiFont.otf` → *Installieren* (nur für den aktuellen
+Benutzer, nicht systemweit).
 
 ---
 
