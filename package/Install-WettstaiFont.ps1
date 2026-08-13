@@ -102,6 +102,59 @@ function Set-FontFolder {
     }
 }
 
+# ----- Schritt 0: alte systemweite Installation aufspueren ------------
+# Wer die alte Anleitung befolgt und WettstaiFont.otf per Doppelklick mit
+# "Fuer alle Benutzer installieren" eingerichtet hat, hat eine Kopie in
+# C:\Windows\Fonts. MuseScore findet die ZUERST:
+# findFontPathGlobal() geht QStandardPaths::FontsLocation durch (das ist
+# C:\Windows\Fonts) und haengt den Benutzer-Ordner erst danach an - der
+# erste Treffer gewinnt. Die alte, kaputte Schrift wuerde also weiter
+# geladen, egal was dieses Skript in den Benutzer-Ordner schreibt.
+Write-Step "[0/3] Nach einer alten systemweiten Installation suchen..."
+
+$systemFont   = Join-Path $env:WINDIR "Fonts\$FontName.otf"
+$hklmFontsKey = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts"
+$staleWarning = $false
+
+if (Test-Path $systemFont) {
+    $isAdmin = ([Security.Principal.WindowsPrincipal] `
+                [Security.Principal.WindowsIdentity]::GetCurrent()
+               ).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
+    if ($isAdmin) {
+        try {
+            Add-Type -Name FontApiStale -Namespace Win32 -MemberDefinition @'
+                [DllImport("gdi32.dll", CharSet = CharSet.Unicode)]
+                public static extern bool RemoveFontResourceW(string lpFileName);
+'@ -ErrorAction SilentlyContinue
+            [void][Win32.FontApiStale]::RemoveFontResourceW($systemFont)
+        } catch { }
+
+        try {
+            Remove-Item -Path $systemFont -Force
+            if (Test-Path $hklmFontsKey) {
+                Get-Item $hklmFontsKey | Select-Object -ExpandProperty Property |
+                    Where-Object { $_ -like "$FontName*" } |
+                    ForEach-Object { Remove-ItemProperty -Path $hklmFontsKey -Name $_ -Force }
+            }
+            Write-Ok "alte systemweite Schrift entfernt: $systemFont"
+        } catch {
+            $staleWarning = $true
+            Write-Problem "Alte systemweite Schrift liess sich nicht entfernen: $systemFont"
+        }
+    } else {
+        $staleWarning = $true
+        Write-Problem "GEFUNDEN: eine alte Kopie unter $systemFont"
+        Write-Problem "MuseScore wuerde DIESE laden, nicht die neue - bitte entfernen:"
+        Write-Problem "  Einstellungen -> Personalisierung -> Schriftarten ->"
+        Write-Problem "  'WettstaiFont' anklicken -> Deinstallieren"
+        Write-Problem "(oder dieses Skript als Administrator erneut ausfuehren)"
+        Write-Host ""
+    }
+} else {
+    Write-Ok "keine alte systemweite Installation vorhanden"
+}
+
 # ----- Schritt 1: Windows-Schriftart ----------------------------------
 Write-Step "[1/3] Schriftart fuer den aktuellen Benutzer installieren..."
 
@@ -155,10 +208,22 @@ Set-FontFolder -TargetDir $musicFontsDir -Files @($otfFile, $jsonFile)
 Write-Ok "$FontName.otf + .json -> $musicFontsDir"
 
 Write-Host ""
-Write-Host "==============================================" -ForegroundColor Green
-Write-Host " Installation abgeschlossen"                    -ForegroundColor Green
-Write-Host "==============================================" -ForegroundColor Green
-Write-Host ""
+if ($staleWarning) {
+    Write-Host "==============================================" -ForegroundColor Red
+    Write-Host " Installation abgeschlossen - ABER:"           -ForegroundColor Red
+    Write-Host "==============================================" -ForegroundColor Red
+    Write-Host ""
+    Write-Problem "Unter $systemFont liegt noch die alte Schrift."
+    Write-Problem "Solange sie dort liegt, laedt MuseScore weiterhin die ALTE"
+    Write-Problem "Version und nichts von dieser Reparatur ist sichtbar."
+    Write-Problem "Bitte zuerst entfernen (siehe oben), dann MuseScore starten."
+    Write-Host ""
+} else {
+    Write-Host "==============================================" -ForegroundColor Green
+    Write-Host " Installation abgeschlossen"                    -ForegroundColor Green
+    Write-Host "==============================================" -ForegroundColor Green
+    Write-Host ""
+}
 Write-Host "So geht es weiter:" -ForegroundColor Cyan
 Write-Host "  1. MuseScore Studio KOMPLETT beenden (auch im Infobereich"
 Write-Host "     neben der Uhr nachsehen) und neu starten."

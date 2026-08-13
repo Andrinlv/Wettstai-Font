@@ -64,6 +64,17 @@ if (Test-Path $regPath) {
     }
 }
 
+# Eine systemweite Kopie (Doppelklick auf die OTF, "fuer alle Benutzer")
+# braucht Administratorrechte und wird hier nur gemeldet.
+$systemFont = Join-Path $env:WINDIR "Fonts\$FontName.otf"
+if (Test-Path $systemFont) {
+    Write-Host "   !!  Systemweite Kopie noch vorhanden: $systemFont" -ForegroundColor Red
+    Write-Host "       Entfernen ueber: Einstellungen -> Personalisierung ->" -ForegroundColor Red
+    Write-Host "       Schriftarten -> '$FontName' -> Deinstallieren" -ForegroundColor Red
+} else {
+    Write-Host "   --  keine systemweite Kopie vorhanden" -ForegroundColor Gray
+}
+
 Write-Host ""
 Write-Host "Fertig. MuseScore neu starten, damit die Aenderung greift." -ForegroundColor Green
 Write-Host ""
